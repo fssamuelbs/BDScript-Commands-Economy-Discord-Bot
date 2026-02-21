@@ -1,0 +1,42 @@
+$nomention
+$reply 
+$suppressErrors
+$onlyIf[$guildID!=;]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$suppressErrors
+
+$onlyIf[$getVar[Registrado;$authorID]<2;<:fx_uncertification:1123653285451153508> **|** Você já tem uma conta registrada em meu sistema, para saber TUDOOOO que eu posso fazer, use ``/ajuda``.]
+
+$nomention
+$title[ <:Server_Verified:1123645662085533796> **|** Conta criada com sucesso!]
+
+$description[ Seja bem-vindo(a) a Clarinha, <@$authorID>!
+
+Sou a Clarinha, uma aplicação brasileira, focada no entretenimento atrás de apostas & economia inspirados na casa de aposta Blaze.
+
+Atualmente, eu conto com diversos recursos, como perfil, sistema monetária, sistema de loja, rankings, apostas e economia gerais. 
+
+Como incentivo você recebeu 🍬 20.000 ``(20k)`` Candys! Turbine seu perfil tornando-se premium, temos planos a partir de R$ 5.99 e vários recursos interessantes.
+
+<:FixaVermelho:1156558263492542494> **| Algumas sugestões para você:**
+
+🎲 **Veja todos os meus comandos**
+Use o comando /ajuda
+🏆 **Veja os mais ricos**
+Use /candy-rank 
+**<:ClarinhaAnotando:1150994810417717259> Veja seu perfil**
+Use o comando /perfil
+]
+
+ $setVar[Registrado;$sum[$getVar[Registrado;$authorID];2];$authorID]
+ $setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];20000];$authorID]
+ $setVar[pessoasregistradas;$sum[$getVar[pessoasregistradas];1]]
+
+
+$addButton[no;https://discord.gg/JdnQTjGhSa;Meu servidor;link;no;🏠]
+$addButton[no;https://fssamuelbs.my.canva.site/clarinha;Me adicione;link;no;✉️]
+
+ $addTimestamp 
+ $color[#ff30a5]
+ 
+ $ignoreTriggerCase
