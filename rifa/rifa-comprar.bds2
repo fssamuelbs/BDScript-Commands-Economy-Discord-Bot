@@ -1,0 +1,57 @@
+$suppressErrors 
+$nomention 
+$onlyIf[$guildID!=;]
+$suppressErrors 
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$cooldown[2s;]
+$setVar[command;$sum[$getVar[command;$authorID];1];$authorID]
+$ignoreTriggerCase 
+$onlyIf[$isNumber[$message[quantia]]==true;<:check_no:1076914196500975706>** |** Certeza que colocou a quantia certa? ela deve ser um **número** de **1** a **1000000**]
+
+$nomention
+$onlyIf[$isNumber[$message[quantia]]==true;<:check_no:1076914196500975706> **|** Certeza que colocou a quantia certa? Ela deve um **número** de **1** a **1000000**]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>=$message[quantia]00;<:check_no:1076914196500975706> **|** Você precisa ter no mínimo $numberSeparator[$message[quantia]00;,] moedas para comprar os tickets!]
+$reply
+$setVar[rifavalor;$sum[$getVar[rifavalor];$message[quantia]00]]
+$setVar[rifaticket;$sum[$getVar[rifaticket];$message[quantia]]]
+$setVar[ticketscomprados;$sum[$getVar[ticketscomprados;$authorID];$message[quantia]];$authorID]
+$setVar[moedasjogadas;$sum[$getVar[moedasjogadas;$authorID];$message[quantia]00];$authorID]
+$nomention
+
+$if[$random[0;1000000000]>=$message[quantia]]
+<:estrela:1080618791144259675> | <@$authorID> Você comprou $message[quantia] tickets para apostar na rifa e infelizmente **você não foi o vencedor**... _Você perdeu $numberSeparator[$message[quantia]00] Candys, o prêmio acumulou, agora veja a quantia atual digite ``/rifa``_.
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$message[quantia]00];$authorID]
+$else
+
+$nomention
+
+<:rifa:1080604762631847976>** | QUE SORTE!** <@$authorID> Parabéns, você conseguiu ganhar a rifa! para você ter ideia você tinha **$message[quantia]** chances em **100.000.000** de ganhar, isso é um golpe de pura sorte!
+> <:z_ticketpng:1080517911044702320> **|** Você comprou $numberSeparator[$sum[$getVar[ticketscomprados;$authorID];$message[quantia]]] tickets nessa rifa!
+> 💳 **|** Você com seus $numberSeparator[$sum[$getVar[ticketscomprados;$authorID];$message[quantia]]] tickets, ganhou de outros $numberSeparator[$sub[$getVar[rifaticket];$getVar[ticketscomprados;$authorID]]] tickets!
+> <:estrela:1080618791144259675> **|** Você ganhou uma rifa com o valor de $numberSeparator[$sum[$getVar[rifavalor];$message[quantia]00]] Candys!
+> <:claramega:1080516183851274250> **|** Você jogou $numberSeparator[$sum[$getVar[moedasjogadas;$authorID];$message[quantia]00]] ClaraCoins na rifa!
+> <:Clarotaamor:1079146187162128598> **|** Você teve um lucro de $numberSeparator[$sub[$getVar[rifavalor];$getVar[moedasjogadas;$authorID]]] Candys!
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$message[quantia]00];$authorID]
+
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$getVar[rifavalor]];$authorID]
+$setVar[rifavalorpass;$getVar[rifavalor]]
+$setVar[rifavalor;0]
+$setVar[rifaticket;0]
+$setVar[moedasjogadas;0;$authorID]
+$setVar[ticketscomprados;0;$authorID]
+$setVar[rifaganhador;$username[$authorID]#$discriminator[$authorID] ( $authorID )]
+
+$endif
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/rifa comprar ``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
