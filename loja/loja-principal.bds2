@@ -1,0 +1,48 @@
+$nomention 
+$suppressErrors 
+$onlyIf[$guildID!=;]
+$onlyIf[$getVar[Registrado;$authorID]>1;$getVar[registromsg]]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+
+$reply
+
+$title[<:loja:1076302680844161045> | Clarinha Store]
+$description[🛍️ **|**  Itens à venda. 👇
+
+<:pc:1127662897036795944> **| PC - Valor: 100.000 Candys.**
+> Benefício: Libera o comando ``/programar`` que possui cooldown de 30 minutos.
+> Valor aproximado de rendimentos por comando: 5.000 Candys.
+
+🏠 **| Casa - Valor: 150.000 Candys.**
+> Benefício: Libera o comando ``/alugar`` que possui cooldown de 25 minutos.
+> Valor aproximado de rendimentos por comando: 8.000 Candys.
+
+<:trator:1081986123120791604> **| Trator - Valor: 200.000 Candys.**
+> Benefício: Libera o comando ``/arar`` que possui cooldown de 22 minutos.
+> Valor aproximado de rendimentos por comando: 10.000 Candys.
+
+🛒 **| Supermercado - Valor: 300.000 Candys.**
+> Libera o comando ``/alimentos`` que possui cooldown de 18 minutos.
+> Valor aproximadamente de rendimentos por comando: 15.000 Candys.]
+
+$footer[ 👉 Para comprar algo da loja, use os botões abaixo, e lembre que após clicar não é possível voltar atrás. ]
+
+$color[#17ffa2]
+
+$addButton[no;Comprar-PC-$authorID;Comprar PC;primary;no;]
+$addButton[no;Comprar-Casa-$authorID;Comprar Casa;primary;no;]
+$addButton[no;Comprar-Trator-$authorID;Comprar Trator;primary;no;]
+$addButton[no;Comprar-Supermercado-$authorID;Comprar Supermercado;primary;no;]
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/loja``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
