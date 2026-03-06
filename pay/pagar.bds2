@@ -1,0 +1,33 @@
+$nomention
+$suppressErrors 
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+  $reply 
+   
+   $var[mds;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$noMentionMessage;kk;000000;1];k;000;1];m;000000;1];b;000000000;1];all;$getVar[CandyMoneyPrincipal;$authorID];1];t;000000000000;1]]
+    $onlyIf[$isNumber[$var[mds]]==true;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Digite um número para pagar. Exemplo: ``/pagar <@fssamuelbs> 100``]
+     $onlyIf[$checkContains[$toLowercase[$var[mds]];inf;infinity;nan;-;.;,;%;∞;\;$;_;e;a;÷;♤]==false;<:fx_uncertification:1123653285451153508> **|** Não utilize caracteres especiais na quantia, os únicos permitidos são ``k`` e ``all``, exemplo: ``/pagar @fssamuelbs 10k``.]
+      $globalCooldown[10s;<:fx_uncertification:1123653285451153508> **|** Retorne <t:$sum[$getTimestamp;$getCooldown[global]]:R> para usar o comando novamente.]
+
+$onlyIf[$checkContains[$var[mds];%{-SEMICOL-}%;-;--;+;%{DOL}%;$;$$;&;";!;?;/;@;#;*;.;\[;%ESCAPED%;\;=;[;₩;¥;£;€;–;–;‐;:;};{;|;~;`;°;#;•;°;》;《;¤;%;٪;°;•;○;●;□;■;♤;♡;◇;♧;☆;▪︎;¤;《;》;¡;¿;|;{;};_;¿;a;b;c;d;d;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z]!=true; <:fx_uncertification:1123653285451153508> **|** <@$authorID>, Sinto muito mas meus dados bloquearam este tipo de símbolo ou letra/simbulo, pois ele facilmente pode problematizar meus sistemas!]
+$onlyIf[$mentioned[1]!=;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Mencione alguém para fazer a transferência!]
+$onlyIf[$mentioned[1]!=$authorID;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não pode realizar um pagamento para você mesmo.]
+$onlyIf[$isBot[$mentioned[1]]==false;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, O usuário não pode ser uma aplicação!]
+$onlyIf[$var[mds]!=;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Insira a quantia que deseja transferir!]
+$onlyIf[$isNumber[$var[mds]]==true;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, O valor da transferência deve conter apenas números!]
+$onlyIf[$var[mds]>0; <:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você só pode realizar transferências comnúmeros iguais ou maiores que ZERO.]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>=$var[mds];<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não tem esta quantia!]
+
+$var[img;https://media.discordapp.net/attachments/1128889845134139404/1170750628105048144/Design_sem_nome_20231105_122812_0000.png?ex=655a2d7d&is=6547b87d&hm=8a9fba00eb0003ea86a4157214097f0867505adebf494facf7f27cc2e8606023&]
+
+$title[Solicitação de Transferência]
+$description[<:ClarinhaFeliz:1170785194534522942> **|** <@$authorID> Você está prestes a transferir <:candyland:1170738391982297198> $var[mds] Candys para <@$mentioned[1]>!
+🤝 **|** Para confirmar a transação, <@$mentioned[1]> deve clicar no botão ** <:Server_Verified:1123645662085533796> Confirmar**!
+🛡 **| Mensagem da minha Staff:** Tenha em mente que troca de Candys por itens que possuem valor real (Nitro, Dinheiro real, Gift Card, etc) é proibido e você será banido! Também é proibido usar contas secundárias para usar daily, vote, trabalhar, etc, pois com isso você terá vantagens, e caso seja identificado por minha equipe você será banido!
+<:zpontoamarelo:1123310998007324782> **|** Lembrando que após confirmar a transação não será possível voltar atrás, envie Candys apenas para pessoas confiáveis!
+]
+$color[#8C52FF]
+$thumbnail[$var[img]]
+$addButton[no;pagar-$mentioned[1]-$var[mds]-$authorID;Aceitar;success;no;<:Server_Verified:1123645662085533796>]
+$addButton[no;recusar-$mentioned[1]-$var[mds]-$authorID;Cancelar;danger;no;<:fx_uncertification:1123653285451153508>]
+
+$ignoreTriggerCase
