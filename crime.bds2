@@ -1,0 +1,115 @@
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<:fx_uncertification:1123653285451153508> **|** <@$authorID> Para cometer um crime você deve ter pelo menos  **5.000 Candys!**]
+$globalCooldown[1h;⏰️ **|** Você já cometeu um crime nos últimos 60 minutos, retorne <t:$sum[$getTimestamp;$getCooldown[global]]:R>.]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$suppressErrors 
+$if[$randomText[a;b;c;d;e;f;g;h]==b]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[<:roubo:1137010995982782604> | Você roubou um Supermercado!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID>, roubou um caminhão de um **Supermercado,** onde havia $randomText[1;2;3;4] mil alimentos, você vendeu tudo e lucrou **🍬$random[50;3000] Candys!** A polícia está atrás de você, fuja!]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137026812057243708/remix-2d1c9ddd-70f9-4c48-9375-7b78db0a3129.png]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$random[0;3000]];$authorID]
+$footer[🌸 | Retorne em 1 hora para fazer outro crime.]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+
+$endif
+
+$if[$randomText[a;b;c;d;e;f;g;h]==a]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[<:roubo:1137010995982782604> **|** Você roubou uma Farmácia!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID> chegou em uma farmácia e quando ninguém estava olhando pegou $randomText[1 caixa de remédio;2 caixas de remédios] e saiu correndo lucrando **🍬$random[0;1500] Candys!**]
+$footer[📑 | Confira os 20 melhores usando /candy rank!]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137060988525494343/1691166854092.png]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$random[0;1500]];$authorID]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+$endif 
+
+$if[$randomText[a;b;c;d;e;f;g;h]==c]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[💳 **|** Você está clonando cartões!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID> Está vendendo cartão clonado, até o momento ele já vendeu $randomText[100;200;300;400] Cartões, e lucrou **🍬 $random[0;3000] Candys!** A polícia está te procurando, cuidado...]
+$footer[📑 | Confira os 20 melhores usando /candy rank!]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137063089632727110/2695969.png]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$random[0;3000]];$authorID]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+$endif 
+
+$if[$randomText[a;b;c;d;e;f;g;h]==d]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[👨‍💻 **|** Você virou hacker!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID> hackeou a **Nasa**, vazou milhares de dados e vendeu todos eles na Internet, lucrando 🍬 $random[20;3400] Candys!]
+$footer[💌 | Entre em meu servidor de suporte! /convites.]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$random[20;3400]];$authorID]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137069883054637096/1691168820404.png]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+$endif 
+
+$if[$randomText[a;b;c;d;e;f;g;h]==e]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[👨‍💻 **|** O Crime falhou!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID> tentou invadir o sistema da **Nasa**, porém o FBI te encontrou, você perdeu 🍬 $random[20;3400] Candys pagando a fiança!]
+$footer[💌 | Entre em meu servidor de suporte! /convites.]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$random[20;3400]];$authorID]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137069883054637096/1691168820404.png]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+$endif 
+
+$if[$randomText[a;b;c;d;e;f;g;h]==f]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[💳 **|** A polícia te pegou!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID> Estava vendendo cartão clonado, ele já tinha vendido $randomText[100;200;300;400] Cartões, porém a polícia rastreou seu IP e você perdeu **🍬 $random[0;3000] Candys!**]
+$footer[📑 | Confira os 20 melhores usando /candy rank!]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137063089632727110/2695969.png]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$random[0;3000]];$authorID]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+$endif 
+
+$if[$randomText[a;b;c;d;e;f;g;h]==g]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[<:roubo:1137010995982782604> **|** Você foi preso roubado uma Farmácia!]
+$description[<:crime2:1137025264346472529> **|** <@$authorID> chegou em uma farmácia e quando ninguém estava olhando pegou $randomText[1 caixa de remédio;2 caixas de remédios], quando estava saindo passou uma viatura da polícia e levou você! A fiança custou **🍬$random[0;1500] Candys!**]
+$footer[📑 | Confira os 20 melhores usando /candy rank!]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137060988525494343/1691166854092.png]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$random[0;1500]];$authorID]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+$endif 
+
+$if[$randomText[a;b;c;d;e;f;g;h]==h]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>4999;<,:fx_uncertification:1123653285451153508> **|** <@$authorID> Você não tem todas essas Candys, consulte seu saldo usando ``/candy atm``.]
+$color[#ff0808]
+$nomention 
+$reply 
+$title[<:roubo:1137010995982782604> **|** Você roubou uma Moto!]
+$description[<:crime2:1137025264346472529> **|** Roubou uma moto, só que o dono da moto era um policial militar, o policial reagiu ao assalto e prendeu você! A fiança custou **🍬 $random[0;3000] Candys!**]
+$footer[📑 | Confira os 20 melhores usando /candy rank!]
+$thumbnail[https://media.discordapp.net/attachments/1127756343281987645/1137203045336371400/vintage-motorcycle-cartoon-logo-with-ai-generative-free-png.png]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$random[0;3000]];$authorID]
+$setVar[comandodedailypremiumon;$sum[$getTimestamp;3600];$authorID]
+
+$endif 
