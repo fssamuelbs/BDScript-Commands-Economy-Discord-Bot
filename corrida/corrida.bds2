@@ -1,0 +1,39 @@
+  $nomention 
+   $onlyIf[$guildID!=;]
+    $reply 
+     $suppressErrors 
+     $setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+     $onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você deve se registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+
+   $var[mds;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$message;kk;000000;1];k;000;1];m;000000;1];b;000000000;1];all;$getVar[CandyMoneyPrincipal;$authorID];1];t;000000000000;1]]
+    $onlyIf[$isNumber[$var[mds]]==true;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Digite apenas números na quantia, exemplo:`` /corrida quantia``]
+     $onlyIf[$checkContains[$toLowercase[$var[mds]];inf;infinity;nan;-;.;,;%;∞;\;$]==false;<:fx_uncertification:1123653285451153508> **|** <@$authorID> Não utilize caracteres especiais!]
+     $onlyIf[$var[mds]>=100;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Para iniciar uma corrida você deve inserir no mínimo 100 Candys.]
+   $onlyIf[$var[mds]<=$getVar[CandyMoneyPrincipal;$authorID];<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não tem essa quantia de Candys, use ``/candy-atm`` para consultá-lo.]
+  $onlyIf[$var[mds]<=25000;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Para iniciar uma corrida você deve inserir no máximo 25.000 Candys.]
+
+ $title[🏁 | Corrida de Carros]
+  $description[🏎 **|** Você está prestes à apostar 🍬 $var[mds] Candys na Corrida de Carros! Para confimar a aposta, escolha um carro e torça para ele ser o vencedor!]
+  $image[https://i.postimg.cc/Yq79bfDG/1-20231223-091231-0000.jpg]
+ $footer[🔗 | https://clarinha.fun]
+
+$c[botões (início)]
+ $addButton[no;CarroVermelho-$var[mds]-$authorID;Vermelho;secondary;no;<:redcar:1188139672682123286>]
+ $addButton[no;CarroBranco-$var[mds]-$authorID;Branco;secondary;no;<:whitercar:1188139712444117023>]
+ $addButton[no;CarroAzul-$var[mds]-$authorID;Azul;secondary;no;<:bluecar:1188139552112644177>]
+ $addButton[no;CarroVerde-$var[mds]-$authorID;Verde;secondary;no;<:greecar:1188139637441572876>]
+$c[botões (fim)]
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/corrida``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
+
