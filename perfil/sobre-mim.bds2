@@ -1,0 +1,42 @@
+$reply 
+$nomention
+$suppressErrors 
+$onlyIf[$guildID!=;]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+
+$onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você deve se registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+
+$if[$isSlash==true]
+
+$onlyIf[$message[texto]!=;<:fx_uncertification:1123653285451153508> **|** Digite Um texto para eu colocar no seu sobremim!]
+$onlyIf[$charCount[$message[texto]]<200;<:fx_uncertification:1123653285451153508> **|** Você só pode adicionar 200 caracteres.]
+$disableInnerSpaceRemoval
+<:Server_Verified:1123645662085533796> **|** <@$authorID>, seu Sobremim foi definido para: `$message`!
+<:zpontoamarelo:1123310998007324782> **|** Para alterar seu background, use /background.
+$setVar[sobremim;$message[texto];$authorID]
+
+$else
+
+$onlyIf[$message!=;<:fx_uncertification:1123653285451153508> **|** Digite Um texto para eu colocar no seu sobremim!]
+$onlyIf[$charCount[$message]<200;<:fx_uncertification:1123653285451153508> **|** Você só pode adicionar 200 caracteres.]
+$disableInnerSpaceRemoval
+<:Server_Verified:1123645662085533796> **|** <@$authorID>, seu Sobremim foi definido para: `$message`!
+<:zpontoamarelo:1123310998007324782> **|** Para alterar seu background, use /background.
+$setVar[sobremim;$message;$authorID]
+
+$endif 
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/sobremim``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
+
+$ignoreTriggerCase
