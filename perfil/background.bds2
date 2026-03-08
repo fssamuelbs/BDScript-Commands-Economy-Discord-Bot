@@ -1,0 +1,42 @@
+$reply 
+$suppressErrors 
+$nomention
+$onlyIf[$guildID!=;]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você deve se registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+
+$if[$isSlash==true]
+$var[imagem;$message[imagem]]
+$onlyIf[$message[imagem]!=;<:fx_uncertification:1123653285451153508> **|** Cole um link de imagem para adicionar ao seu background.]
+$disableInnerSpaceRemoval
+$setVar[backoudantesdeconfirmar;$message[imagem];$authorID]
+
+$title[:frame_photo: | Novo Background - Confirmação]
+$description[<:Server_Verified:1123645662085533796> **|** Esse será o seu novo background, para prosseguir você deve confirmar a operação, e lembrando que há um custo de 50,000 Candys para membros comuns, e para Boosters do meu servidor a operação é gratuita.]
+$image[$message[imagem]]
+$addButton[no;backpobre-setarimagem-$authorID;Pagar 50000 Candys;secondary;no;<:Server_Verified:1123645662085533796>]
+$addButton[no;backrico-setarimagem-$authorID;Pagar Booster;secondary;no;<:Clarinhabooster:1135716074260791317>]
+$addButton[no;backcancel-setarimagem-$authorID;Cancelar;secondary;no;<:fx_uncertification:1123653285451153508>]
+$color[#c917ff]
+ 
+
+$else
+
+<:fx_uncertification:1123653285451153508> **|** Esse comando está desativado via prefixo, use /background.
+
+$endif 
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/background ``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
+
+$ignoreTriggerCase
