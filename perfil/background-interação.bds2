@@ -1,0 +1,42 @@
+$nomention 
+$if[$and[$textSplit[$customID;-]$splitText[1]==backpobre;$splitText[3]==$authorID]==true]
+$removeButtons
+$cooldown[20s;]
+$onlyIf[$getVar[CandyMoneyPrincipal;$authorID]>=50000;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Aparentemente você não tem **50 mil Candys** para finalizar a operação.]
+$var[back;$getVar[backoudantesdeconfirmar;$authorID]]
+$nomention 
+$title[<:Server_Verified:1123645662085533796> **|** Operação Concluída. ]
+$description[🍬 **|** <@$authorID>, seu background foi alterado com sucesso.
+<:SvPontoBranco:1123647792703873137> **|** Para alterar seu Sobre mim,digite ``/sobremim``.]
+$setVar[back;$var[back];$authorID]
+$footer[🎉 | Seja booster no meu servidor e libere vários benefícios, além de participar dos sorteios, eventos e muito mais!]
+$color[#c917ff]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];50000];$authorID]
+
+$endif
+
+$if[$and[$textSplit[$customID;-]$splitText[1]==backcancel;$splitText[3]==$authorID]==true]
+
+$removeButtons
+
+$title[ <:Server_Verified:1123645662085533796> **|** Cancelamento realizado]
+$description[<:zpontoamarelo:1123310998007324782> **|** <@$authorID>, você cancelou a transação com sucesso!]
+$footer[$randomText[ 🍬 | Veja os mais ricos com o comando /candy_rank.; 🎉 | Participe dos Sorteios de Candys no meu Servidor /convite; 🔎 | Precisa de ajuda? Digite /help; 🔧 | Fui desenvolvida por fssamuelbs!; 🍬 | Utilize o comando /daily]]$color[#ff0a0a]
+
+$endif 
+
+$if[$and[$textSplit[$customID;-]$splitText[1]==backrico;$splitText[3]==$authorID]==true]
+$removeButtons
+$onlyIf[$getVar[booster;$authorID]>=1;]
+$var[back;$getVar[backoudantesdeconfirmar;$authorID]]
+$nomention 
+$title[<:Clarinhabooster:1135716074260791317> **|** Operação Concluída. ]
+$description[🍬 **|** <@$authorID>, seu background foi alterado com sucesso, e essa operação foi gratuita por você ser booster.
+<:SvPontoBranco:1123647792703873137> **|** Para alterar seu Sobre mim,digite ``/sobremim``.]
+$setVar[back;$var[back];$authorID]
+$footer[🎉 | Sorteios exclusivos em minha comunidade! /convites]
+$color[#c917ff]
+$endif
+
+
+
