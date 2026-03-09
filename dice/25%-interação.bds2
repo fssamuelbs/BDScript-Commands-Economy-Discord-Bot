@@ -1,0 +1,38 @@
+$nomention 
+$suppressErrors 
+$if[$and[$textSplit[$customID;-]$splitText[1]==numetos125;$splitText[3]==$authorID]==true]
+$onlyIf[$splitText[2]<=$getVar[CandyMoneyPrincipal;$authorID];<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não tem essa quantia de Candys, use ``/candy-atm`` para consultá-lo.]
+$removeButtons[$messageID]
+$cooldown[7s;Aguarde alguns segundos para usar clicar no botão novamente!]
+$if[$randomText[não;não;sim;não;sim;não;não]==sim]
+$var[id;$sendEmbedMessage[$channelID;;🎲 **|** Dice Candy;;<:Clarotaamor:1133904195485966347> **|** Jogando o dado...
+<:Claramoney:1133861437853405316> **|** Valor apostado: $splitText[2] Candys!;ff2424;;;;;;https://media.discordapp.net/attachments/1142879885338083328/1145392415725867108/20230827_1257541.gif;;yes]]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$async[1]
+$replyIn[12s]
+$deleteMessage[$channelID;$var[id]]
+$sendEmbedMessage[$channelID;;🎲 **|** Dice Candy - GANHOU!;;<:Claramoney:1133904408720191498> **|** O Dado chamou 20!
+🎉 **|** Parabéns <@$authorID>, você ganhou $calculate[($splitText[2]*4)] Candys!;#ff2424; ; ; ; ; ;https://media.discordapp.net/attachments/1142879885338083328/1145392415381913670/20230827_131951_0000.jpg;;yes]]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$endasync 
+
+$else
+
+$var[id;$sendEmbedMessage[$channelID;;🎲 **|** Dice Candy;;<:Clarotaamor:1133904195485966347> **|** Jogando o dado...
+<:Claramoney:1133861437853405316> **|** Valor apostado: $splitText[2] Candys!;ff2424;;;;;;https://media.discordapp.net/attachments/1142879885338083328/1145395420403617792/20230827_1329031.gif;;yes]]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$async[1]
+$replyIn[12s]
+$deleteMessage[$channelID;$var[id]]
+$sendEmbedMessage[$channelID;;🎲 **|** Dice Candy - PERDEU!;;<:Claramoney:1133904408720191498> **|** O Dado chamou 75!
+🎉 **|** Infelizmente <@$authorID>, perdeu $splitText[2] Candys!;#ff2424; ; ; ; ;;https://media.discordapp.net/attachments/1142879885338083328/1145395420776902798/20230827_132818_0000.jpg;;yes]]
+
+$endasync 
+$endif 
+$endif 
