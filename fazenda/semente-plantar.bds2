@@ -1,0 +1,26 @@
+$onlyIf[$guildID!=;]
+$nomention
+$suppressErrors 
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+
+$onlyIf[$getVar[FazendaComprada;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você não tem uma Fazenda, use ``/fazenda-comprar``]
+$onlyIf[$getVar[Registrado;$authorID]>1;$getVar[registromsg]]
+$reply 
+$thumbnail[https://i.postimg.cc/y6XpGLDc/Design-sem-nome-20231222-140338-0000.png]
+$title[<:planta:1081986531243327580> **|** Plantações de $username]
+$description[<:zpontoamarelo:1123310998007324782> **|** <@$authorID>, Você possui **$getVar[Plantações;$authorID] Plantações,** você pode vendê-las usando ``/fazenda-converter`` e receber Candys, lembrando que cada semente custa 1 candy.]
+$footer[$randomText[ 🍬 | Veja os mais ricos com o comando /candy_rank.; 🎉 | Participe dos Sorteios de Candys no meu Servidor /convite; 🔎 | Precisa de ajuda? Digite /help; 🔧 | Fui desenvolvida por fssamuelbs!; 🍬 | Utilize o comando /daily]]
+$color[#72ff47]
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/sementes``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
