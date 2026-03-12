@@ -1,0 +1,48 @@
+$if[$and[$textSplit[$customID;-]$splitText[2]==casar;$splitText[3]==$authorID]==true]
+$cooldown[30s;]
+<@$authorID> | <@$splitText[4]>
+$onlyIf[$getVar[Registrado;$splitText[4]]>1;<:fx_uncertification:1123653285451153508> **|** <@$authorID> deve se registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+$onlyIf[$getVar[casado;$splitText[4]]==Solteiro (a);<:fx_uncertification:1123653285451153508> **|** <@$splitText[4]> já está casado! não pode trair viu, é feio!]
+$onlyIf[$getVar[Alianca;$splitText[4]]>1;<:fx_uncertification:1123653285451153508> **|** <@$splitText[4]> não tem uma **aliança**, para Casar você deve comprar uma, use ``/aliança comprar``.]
+$onlyIf[$getVar[casado;$splitText[4]]==Solteiro (a);<:fx_uncertification:1123653285451153508> **|** Desculpe <@$splitText[4]>, mas esse usuário já está casado, sinto muito...]
+$onlyIf[$getVar[Registrado;$splitText[3]]>1;<:fx_uncertification:1123653285451153508> **|** <@$splitText[3]> Não possui conta em meu sistema!]
+
+$nomention
+
+$removeButtons 
+$title[💍 **|** Pedido aceito!]
+$description[🌸 **|** <@$authorID> você aceitou o pedido de Casamento de <@$splitText[4]>, espere que você sejam feliz!]
+$image[https://api.popcat.xyz/ship?user1=$authorAvatar&user2=$userAvatar[$splitText[4]]]
+
+$setVar[casado;Casado(a) com $username[$splitText[4]];$authorID]
+$setVar[casado;Casado(a) com $username[$authorID];$splitText[4]]
+$setVar[casadoID;$authorID;$splitText[4]]
+$setVar[casadoID;$splitText[4];$authorID]
+$color[c917ff]
+$setVar[Alianca;$sub[$getVar[Alianca;$splitText[4]];2];$splitText[4]]
+$setVar[saberseecasado;$sum[$getVar[saberseecasado;$authorID];2];$authorID]
+$setVar[saberseecasado;$sum[$getVar[saberseecasado;$splitText[4]];2];$splitText[4]]
+
+
+$endif
+
+$if[$and[$textSplit[$customID;-]$splitText[2]==rcasar;$splitText[3]==$authorID]==true]
+<@$authorID> | <@$splitText[4]>
+
+$nomention 
+$removeButtons 
+ 
+$title[<:fx_uncertification:1123653285451153508> **|** Pedido recusado...]
+$description[😭 **|** <@$splitText[4]>, infelizmente <@$authorID> recusou de pedido de casamento...]
+$color[c917ff]
+
+$endif 
+
+$if[$and[$textSplit[$customID;-]$splitText[2]==ccasar;$splitText[3]==$authorID]==true]
+
+$nomention 
+$removeButtons 
+$title[<:fx_uncertification:1123653285451153508> **|** Pedido Cancelado...]
+$description[💍 **|** <@$authorID> cancelou o pedido de casamento com sucesso!]
+$color[c917ff]
+$endif 
