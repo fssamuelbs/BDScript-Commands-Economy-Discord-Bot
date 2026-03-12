@@ -1,0 +1,29 @@
+$nomention 
+$reply 
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+
+$onlyIf[$getVar[Registrado;$authorID]>1;$getVar[registromsg]]
+
+$title[🧦 **|** Ajuda da Clarinha]
+$description[ Olá <@$authorID>, meu nome é Clarinha e eu sou uma bot de economia muito divertida com vários comandos incríveis!
+$thumbnail[https://i.postimg.cc/Bn5njg6m/20231221-004643-0000.png]
+Logo abaixo estão listados os meus comandos e informações sobre mim, clique na opção correspondente.]
+$newSelectMenu[paineldeajuda;1;1;Como posso ajudar?]
+$addSelectMenuOption[paineldeajuda;Comandos de Economia;ajudame-$authorID;Veja todos os meus comandos envolvendo minha Economia;no;🍬]
+$addSelectMenuOption[paineldeajuda;Comandos de Aposta;ajudaapostao-$authorID;Veja todos os meus comandos envolvendo Apostas;no;🎰]
+$addSelectMenuOption[paineldeajuda;Comandos utilitários;ajudaeco-$authorID;Veja todos os meus comandos utilitários;no;🧩]
+$addSelectMenuOption[paineldeajuda;Sobre Mim;ajudavu-$authorID;Veja todas as informações sobre mim;no;<a:Emoji_Sparkles:1123308504644583496>]
+$color[#a812ff]
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/ajuda``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
