@@ -1,0 +1,46 @@
+$botTyping
+$reply 
+$suppressErrors 
+$onlyIf[$guildID!=;]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+
+$onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você deve se registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+$onlyIf[$getVar[casado;$authorID]==Solteiro (a);<:fx_uncertification:1123653285451153508> **|** Você já está casado! não pode trair viu, é feio!]
+$onlyIf[$getVar[Alianca;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você não tem uma **aliança**, para Casar você deve comprar uma, use ``/aliança comprar``.]
+$onlyIf[$mentioned[1]!=;<:fx_uncertification:1123653285451153508> **|** Mencione um usuário para pedir em casamento!
+Exemplo: ``cl.casar @fssamuelbs``]
+$onlyIf[$getVar[Registrado;$mentioned[1]]>1;<:fx_uncertification:1123653285451153508> **|** <@$mentioned[1]> Não possui conta em meu sistema!]
+$onlyIf[$mentioned[1]!=$authorID;<:fx_uncertification:1123653285451153508> **|** Que bom que você tem amor próprio, porém não tem como casar com você mesmo!]
+$onlyIf[$mentioned[1]!=$botID;<:fx_uncertification:1123653285451153508> **|** Desculpe mas eu não quero casar, pois eu já sou casada com o Bioons.]
+$onlyIf[$isBot[$mentioned[1]]!=true;<:fx_uncertification:1123653285451153508> **|** Quer casar com um bot? aí não! mencione outro usuário para pedir em casamento!]
+$onlyIf[$getVar[casado;$mentioned[1]]==Solteiro (a);<:fx_uncertification:1123653285451153508> **|** Desculpe <@$authorID>, mas esse usuário já está casado, sinto muito...]
+<@$mentioned[1]> | <@$authorID>
+$nomention
+
+$title[💍 | Pedido de Casamento]
+$description[❤️ **|** <@$mentioned[1]>, você recebeu um pedido de casamento de <@$authorID>, você aceita?
+🌸 **|** Uma aliança custa ``30.000 Candys`` para membros comuns, já para membros Boosters do meu servidor custa apenas ``10.000 Candys``!]
+
+
+$color[#c917ff]
+$footer[💎 | Seja booster no meu servidor e ganhe benefícios incríveis! /convites.]
+$addButton[no;casar-casar-$mentioned[1]-$authorID;Aceitar;success;no;💍]
+$addButton[no;rcasar-rcasar-$mentioned[1]-$authorID;Recusar;danger;no;<:fx_uncertification:1123653285451153508>]
+$addButton[no;ccasar-ccasar-$authorID;Cancelar;danger;no;<:recusado:968145457492664360>]
+
+$image[https://api.popcat.xyz/ship?user1=$authorAvatar&user2=$userAvatar[$mentioned[1]]]
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/casar``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
+
+$ignoreTriggerCase
