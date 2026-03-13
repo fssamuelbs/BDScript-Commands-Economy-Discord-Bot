@@ -1,0 +1,48 @@
+$nomention 
+$suppressErrors 
+$onlyIf[$guildID!=;]
+$reply 
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Você deve se registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+
+$var[mds;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$message[quantia];kk;000000;1];k;000;1];m;000000;1];b;000000000;1];all;$getVar[CandyMoneyPrincipal;$authorID];1];t;000000000000;1]]
+
+$onlyIf[$isNumber[$var[mds]]==true;<:fx_uncertification:1123653285451153508> **|** Digite apenas números na quantia.]
+
+$onlyIf[$checkContains[$toLowercase[$var[mds]];inf;infinity;nan;-;.;,;%;∞;\;$]==false;<:fx_uncertification:1123653285451153508> **|** Não utilize caracteres especiais!]
+
+$onlyIf[$var[mds]>=100;<:fx_uncertification:1123653285451153508> **|** Você só pode apostar mais de 100 Candys em cada rodada.]
+
+$onlyIf[$var[mds]<=$getVar[CandyMoneyPrincipal;$authorID];<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não tem essa quantia de Candys, use ``/candy-atm`` para consultá-lo.]
+
+$globalCooldown[10s;⏰️ **|** Retorne <t:$sum[$getTimestamp;$getCooldown[global]]:R> para usar o comando novamente.]
+$title[🚀 **|** Crash Rocket ]
+$description[🎉 **|** <@$authorID>, Você está prestes à apostar $var[mds] Candys no Crash! Para continuar você deve escolher um Multiplicador. O foguete não pode cair antes de alcançar o número escolhido. 
+
+<:Claramoney:1133861437853405316> **|** Lucros:
+
+🚀 **|** O foguete irá colidir depois...
+- 7x (Possibilidade: ≈ 20%)
+- 4x (Possibilidade: ≈ 30%)
+- 2x (Possibilidade: ≈ 50%)
+]
+$footer[Após usar essa interação, os botões irão sumir!]
+$color[#ff1ff4]
+$image[https://media.discordapp.net/attachments/1142879885338083328/1154050192144879681/20230920_101629_0000.jpg]
+$addButton[no;foguete7x-$var[mds]-$authorID;7x;secondary;no;🚀]
+$addButton[no;foguete4x-$var[mds]-$authorID;4x;secondary;no;]
+$addButton[no;foguete2x-$var[mds]-$authorID;2x;secondary;no;]
+
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/crash``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
