@@ -1,0 +1,29 @@
+$nomention
+$suppressErrors 
+$reply 
+$onlyIf[$guildID!=;]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$onlyIf[$getVar[PremiumCakke;$authorID]>1;$getVar[premiummsg]]
+$onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** Epa <@$authorID>! Esse é seu primeiro contato comigo, para começar a se divertir comigo você deve se registrar, para isso use ``/registrar`` ou ``cl.registrar``.]
+
+<:Server_Verified:1123645662085533796> **|** <@$authorID>, Você coletou sua recompensa diária premium!
+🎉 **|** Hoje você ganhou 🍬 **$random[1000;3000]** Candys, retorne amanhã para resgatá-lo novamente.
+$globalCooldown[24h;<:fx_uncertification:1123653285451153508> **|** Você deve retornar <t:$sum[$getTimestamp;$getCooldown[global]]:R> para usar ``/daily premium`` novamente.]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$random[1000;3000]];$authorID]
+$setVar[comandodedailypremiumon220202;$sum[$getTimestamp;86400];$authorID]
+
+$channelSendMessage[1137142368139743382;
+**<:jslogo:1137073414184636548> | Comando usado via Slash**
+- **Autor:**
+`` $username ($authorID)``
+- **Comando:** 
+``/daily premium``
+- **Servidor:** 
+``$serverName[$guildID] ($guildID)``
+- **Executado no Canal:** 
+``$channelName[$channelID] ($channelID) ``
+- **Horário:**
+<t:$getTimestamp:D>]
+$ignoreTriggerCase
