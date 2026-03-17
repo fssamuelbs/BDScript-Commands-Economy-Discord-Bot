@@ -1,0 +1,28 @@
+$nomention 
+$suppressErrors 
+$onlyIf[$guildID!=;]
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$onlyIf[$getVar[Registrado;$authorID]>1;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, você deve registrar em meu sistema antes de usar meus comandos, use ``/registrar``]
+
+ $color[#68706e]
+  $reply 
+   $var[mds;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$message;kk;000000;1];k;000;1];m;000000;1];b;000000000;1];all;$getVar[CandyMoneyPrincipal;$authorID];1];t;000000000000;1]]
+    $onlyIf[$isNumber[$var[mds]]==true;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Digite um número para apostar. Exemplo: ``/alvo 100``]
+     $onlyIf[$checkContains[$toLowercase[$var[mds]];inf;infinity;nan;-;.;,;%;∞;\;$;_;e;a;÷;♤]==false;<:fx_uncertification:1123653285451153508> **|** Não utilize caracteres especiais na quantia, os únicos permitidos são ``k`` e ``all``, exemplo: ``/tigrinho 10k``.]
+      $globalCooldown[10s;<:fx_uncertification:1123653285451153508> **|** Retorne <t:$sum[$getTimestamp;$getCooldown[global]]:R> para usar o comando novamente.]
+
+ $onlyIf[$var[mds]>=100;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Insira uma quantia maior que **100 Candys** para apostar.]
+  $onlyIf[$var[mds]<=25000;<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você só pode apostar no máximo 25.000 ``(25k)`` Candys em cada tiro.]
+   $onlyIf[$var[mds]<=$getVar[CandyMoneyPrincipal;$authorID];<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não tem essa quantia de Candys, use ``/candy-atm`` para consultá-lo.]
+    $var[resultado;$randomText[resultadodotigre1;resultadodotigre1;resultadodotigre3;resultadodotigre1;resultadodotigre2;resultadodotigre2]]
+
+ $title[🏹 | Flexa <:clarinhavs:1175529637590356008> Alvo - Candy!]
+  $description[🎯 **|** Para confimar a aposta dos <:candy:1167941123210215485> **$numberSeparator[$var[mds]] Candys** que você inseriu, selecione um alvo para sua flexa.]
+
+   $image[https://media.discordapp.net/attachments/1128889845134139404/1173410480279265370/20231112_205241_0000.png?ex=6563daab&is=655165ab&hm=107322ec0d24bca8977583c1799b0ff740ddded2543361b05113ec62d07d844b&]
+   
+   $addButton[no;Canto1-$var[mds]-$authorID;Esquerda;secondary;no;]
+   $addButton[no;Meio-$var[mds]-$authorID;Meio;secondary;no;]
+   $addButton[no;Canto2-$var[mds]-$authorID;Direito;secondary;no;]
+  
+   $ignoreTriggerCase 
