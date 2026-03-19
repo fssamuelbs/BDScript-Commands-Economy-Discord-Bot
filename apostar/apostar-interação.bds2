@@ -1,0 +1,52 @@
+$nomention 
+$suppressErrors 
+$setVar[comandosusados;$sum[$getVar[comandosusados];1]]
+$if[$and[$textSplit[$customID;-]$splitText[1]==aceitar;$splitText[2]==$authorID]==true]
+$onlyIf[$getVar[CandyMoneyPrincipal;$splitText[4]]>=$splitText[3];<:fx_uncertification:1123653285451153508> **|** <@$splitText[4]> suas Candys foram sugadas e você não pôde concluir essa transação.]
+$onlyIf[$getVar[CandyMoneyPrincipal;$splitText[2]]>=$splitText[3];<:fx_uncertification:1123653285451153508> **|** <@$splitText[2]> suas Candys foram sugadas e você não pôde concluir essa transação.]
+$removeButtons
+
+$var[mds;$splitText[3]]
+$var[user;$authorID]
+$var[enviador;$splitText[4]]
+$var[imposto;$calculate[5*$splitText[3]/100]]
+$var[valorfinal;$calculate[$var[mds]-$var[imposto]]]
+
+
+$if[$randomText[sim;não;não;sim]==sim]
+
+$title[🎉 | Solicitação de Aposta]
+$description[⭐️ **|** <@$var[user]>, <@$var[enviador]> deseja fazer uma aposta com você valendo 🍬 $numberSeparator[$var[mds]] Candys, para aceitar clique no botão ``aceitar``.
+🛡 **|** Lembrando que após confirmar essa apostar não será possível reverter, e minha staff não irá reembolsar Candys, além de ambos terem 50% de chance de ganhar!
+🎊 **|** Se cair 🧁 <@$var[user]> leva a aposta, se cair 🌽 <@$authorID> vence! Lembre-se que eu 5% do lucro fica comigo, rsrs.]
+
+$color[#8C52FF]
+
+$addButton[no;button;Aposta concluída!;secondary;yes;🎉]
+
+$channelSendMessage[$channelID;🧁 **|** Doce!
+<:candyland:1170738391982297198> **|** Parabéns <@$authorID>, você ganhou **$numberSeparator[$var[valorfinal]] Candys** patrocinados por <@$splitText[4]>! Toda operação tem um pequeno imposto, e eu fiquei com 5% do valor apostado, rsrs!]
+
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$var[enviador]];$var[mds]];$var[enviador]]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$var[valorfinal]];$authorID]
+ 
+$else
+
+$title[🎉 | Solicitação de Aposta]
+$description[⭐️ **|** <@$var[user]>, <@$var[enviador]> deseja fazer uma aposta com você valendo 🍬 $numberSeparator[$var[mds]] Candys, para aceitar clique no botão ``aceitar``.
+🛡 **|** Lembrando que após confirmar essa apostar não será possível reverter, e minha staff não irá reembolsar Candys, além de ambos terem 50% de chance de ganhar!
+🎊 **|** Se cair 🧁 <@$var[user]> leva a aposta, se cair 🌽 <@$authorID> vence! Lembre-se que eu 5% do lucro fica comigo, rsrs.]
+
+$color[#8C52FF]
+
+$addButton[no;button;Aposta concluída!;secondary;yes;🎉]
+
+$channelSendMessage[$channelID;🌽 **|** Fruta!
+<:candyland:1170738391982297198> **|** Parabéns <@$var[enviador]>, você ganhou **$numberSeparator[$var[valorfinal]] Candys** patrocinados por <@$var[user]>! Toda operação tem um pequeno imposto, e eu fiquei com 5% do valor apostado, rsrs!]
+
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$var[enviador]];$var[valorfinal]];$var[enviador]]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$var[mds]];$authorID]
+ 
+$endif 
+$endif 
+ 
