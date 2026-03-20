@@ -1,0 +1,54 @@
+$if[$and[$textSplit[$customID;-]$splitText[1]==foguete2x;$splitText[3]==$authorID]==true]
+$onlyIf[$splitText[2]<=$getVar[CandyMoneyPrincipal;$authorID];<:fx_uncertification:1123653285451153508> **|** <@$authorID>, Você não tem essa quantia de Candys, use ``/candy-atm`` para consultá-lo.]
+$removeButtons[$messageID]
+$cooldown[7s;Aguarde alguns segundos para usar clicar no botão novamente!]
+
+$if[$randomText[5;7;1;5;1;5]==7]
+$var[id;$sendEmbedMessage[$channelID;;🚀 **|** Crash Rocket;;<:Clarotaamor:1133904195485966347> **|** Foguete lançado...
+<:Claramoney:1133861437853405316> **|** Valor apostado: $splitText[2] Candys!;#ff1ff4;;;;;;https://media.discordapp.net/attachments/1155533018530861068/1155661361670529168/20230924_2121241.gif;;yes]]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$async[1]
+$replyIn[5s]
+$deleteMessage[$channelID;$var[id]]
+
+$sendEmbedMessage[$channelID;;🚀 **|** Crash Rocket - GANHOU!;;<:Claramoney:1133904408720191498> **|** O Foguete foi até 3, você iria multiplicar suas Candys em 3x, mas você apostou em 2x.
+🎉 **|** Parabéns <@$authorID>, você ganhou $calculate[($splitText[2]*2)] Candys!;#ff1ff4; ; ; ; ; ;https://media.discordapp.net/attachments/1155533018530861068/1155662546611740702/20230924_212914_0000.jpg;;yes]]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$endasync 
+$endif
+
+$if[$randomText[5;7;1;5;1;5]==5]
+$var[id;$sendEmbedMessage[$channelID;;🚀 **|** Crash Rocket;;<:Clarotaamor:1133904195485966347> **|** Foguete lançado...
+<:Claramoney:1133861437853405316> **|** Valor apostado: $splitText[2] Candys!;#ff1ff4;;;;;;https://media.discordapp.net/attachments/1155533018530861068/1155663054101549108/20230924_2131253.gif;;yes]]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$async[1]
+$replyIn[5s]
+$deleteMessage[$channelID;$var[id]]
+
+$sendEmbedMessage[$channelID;;🚀 **|** Crash Rocket - PERDEU!;;<:Claramoney:1133904408720191498> **|** O Foguete colidiu muito cedo!
+🎉 **|** Não foi dessa vez <@$authorID>, você perdeu $calculate[($splitText[2]*1)] Candys!;#ff1ff4; ; ; ; ; ;https://media.discordapp.net/attachments/1155533018530861068/1155663053849886902/20230924_213205_0000.jpg;;yes]]
+
+$endasync 
+$endif
+
+$if[$randomText[5;7;1;5;1;5]==1]
+$var[id;$sendEmbedMessage[$channelID;;🚀 **|** Crash Rocket;;<:Clarotaamor:1133904195485966347> **|** Foguete lançado...
+<:Claramoney:1133861437853405316> **|** Valor apostado: $splitText[2] Candys!;#ff1ff4;;;;;;https://media.discordapp.net/attachments/1155533018530861068/1155667536994644068/20230924_2149421.gif;;yes]]
+$setVar[CandyMoneyPrincipal;$sub[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$async[1]
+$replyIn[5s]
+$deleteMessage[$channelID;$var[id]]
+
+$sendEmbedMessage[$channelID;;🚀 **|** Crash Rocket - GANHOU!;;<:Claramoney:1133904408720191498> **|** O Foguete foi até 3, você iria multiplicar suas Candys em 3x, mas você apostou em 2x.
+🎉 **|** Parabéns <@$authorID>, você ganhou $calculate[($splitText[2]*2)] Candys!;#ff1ff4; ; ; ; ; ;https://media.discordapp.net/attachments/1155533018530861068/1155661362102534185/20230924_212518_0000.jpg;;yes]]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+$setVar[CandyMoneyPrincipal;$sum[$getVar[CandyMoneyPrincipal;$authorID];$splitText[2]];$authorID]
+
+$endasync 
+$endif
+$endif 
